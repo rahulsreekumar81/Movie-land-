@@ -9,6 +9,8 @@ const Genres = ({
   setGenres,
   setPage,
 }) => {
+  // Have two arrays of Genre when an Genre is add , the selected Genre need to,
+  // push into the new array, while unselecting the Genre need to be removed from the array
   const handleAddGenres = (genre) => {
     setSelectedGenres([...selectedGenres, genre]);
     setGenres(genres.filter((g) => g.id !== genre.id));

@@ -63,6 +63,7 @@ const SearchPage = () => {
             <Search fontSize="large" />
           </Button>
         </div>
+        {/* Tab component in material UI to switch between TV series and movie */}
         <Tabs
           value={type}
           indicatorColor="primary"
@@ -78,6 +79,7 @@ const SearchPage = () => {
           <Tab style={{ width: "50%" }} label="Search TV Series" />
         </Tabs>
       </ThemeProvider>
+      {/*  Bug after taking search component , chip component does not works properly, need fix*/}
       <div className="trending">
         {content &&
           content.map((con) => (
@@ -95,6 +97,7 @@ const SearchPage = () => {
           !content &&
           (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
       </div>
+      {/* Only load pagination if number of page is greater than 1 */}
       {numOfPages > 1 && (
         <CustomPagination setPage={setPage} numOfPages={numOfPages} />
       )}
