@@ -9,7 +9,9 @@
   position: relative;
   font-family: "Acme", sans-serif;
 }
-
+.addButton {
+  font-size: medium;
+}
 .media:hover {
   background-color: white;
   color: black;

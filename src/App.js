@@ -7,6 +7,7 @@ import Movies from "./Component/Movies/Movies";
 import Series from "./Component/Series/Series";
 import SearchPage from "./Component/Search/SearchPage";
 import SimpleBottomNavigation from "./Component/Navbar/BottomNav";
+import WatchLater from "./Component/WatchLater/WatchLater";
 function App() {
   return (
     <Router>
@@ -18,6 +19,7 @@ function App() {
             <Route path="/movies" element={<Movies />} />
             <Route path="/series" element={<Series />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/watchlater" element={<WatchLater />} />
           </Routes>
         </Container>
       </div>

@@ -7,9 +7,12 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 //Icons for the Bottom-Nav from Material-UI
 import MovieIcon from "@mui/icons-material/Movie";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
+import WatchLaterIcon from "@mui/icons-material/WatchLater";
+import Badge from "@mui/material/Badge";
 import SearchIcon from "@mui/icons-material/Search";
 import TvIcon from "@mui/icons-material/Tv";
 import { makeStyles } from "@material-ui/core";
+import useStore from "../../store/store";
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -22,6 +25,7 @@ const useStyles = makeStyles({
 
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
+  const watch = useStore((state) => state.watch);
   const [value, setValue] = React.useState(0);
   const navigate = useNavigate();
   useEffect(() => {
@@ -33,6 +37,8 @@ export default function SimpleBottomNavigation() {
       navigate("/series");
     } else if (value === 3) {
       navigate("/search");
+    } else if (value === 4) {
+      navigate("/watchlater");
     }
   }, [value, navigate]);
 
@@ -65,6 +71,15 @@ export default function SimpleBottomNavigation() {
           label="Search"
           style={{ color: "white" }}
           icon={<SearchIcon />}
+        />
+        <BottomNavigationAction
+          label="Watchlist"
+          style={{ color: "white" }}
+          icon={
+            <Badge badgeContent={watch.length} color="error">
+              <WatchLaterIcon />
+            </Badge>
+          }
         />
       </BottomNavigation>
     </Box>
